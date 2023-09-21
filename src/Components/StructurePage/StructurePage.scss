@@ -1,0 +1,26 @@
+@import "../../Styles/breakpoints.scss";
+
+.bar {
+  width: 92.53%;
+  position: absolute;
+}
+
+.topBar {
+  padding: "2px, 0px, 0px 10px";
+}
+
+@media (max-width: $mobile) {
+  .sideBar {
+    flex-direction: column-reverse;
+    .sideBarTabs {
+        display: flex;
+        .toolBar{
+            display: none;
+        }
+        nav{
+            display: flex;
+
+        }
+    }
+  }
+}

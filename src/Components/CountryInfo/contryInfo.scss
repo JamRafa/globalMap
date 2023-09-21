@@ -1,0 +1,65 @@
+@import "./../../Styles/colours.scss";
+@import "../../Styles/breakpoints.scss";
+
+.countryInfo {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 420px;
+  margin: 1% 0% 0% 1%;
+  border-radius: 20px;
+  background-color: $cor-primaria;
+  gap: 3%;
+
+  .flag {
+    img {
+      width: 100%;
+    }
+  }
+
+  .allText {
+    padding: 5%;
+    height: 70%;
+    .position {
+
+      opacity: 0.5;
+    }
+    h2 {
+      font-size: 40px;
+      font-weight: bolder;
+    }
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .money {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .moneyInfo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+    .armyImg {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 30%;
+      }
+    }
+    .icons {
+      display: flex;
+      justify-content: space-around;
+      .sub-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
