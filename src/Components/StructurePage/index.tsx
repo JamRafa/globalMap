@@ -19,6 +19,7 @@ import TabsItens from "./TabsItens/tabsItens";
 const drawerWidth: number = 240;
 const drawerWidthClosed: number = 71;
 
+
 interface AppBarProps {
   open?: boolean;
 }

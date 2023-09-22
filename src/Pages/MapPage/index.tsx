@@ -3,7 +3,7 @@ import "./map.scss";
 import { useSelector } from "react-redux";
 import { Iredux } from "../../Interfaces/redux";
 import { handleMapClick } from "../../Utils/Map";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import CountryInfo from "../../Components/CountryInfo";
 import { useDispatch } from "react-redux";
 import { saveCountry } from "../../Store/reducers/SearchCountry";
@@ -15,6 +15,7 @@ export default function MapPage() {
   });
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
+  const componentRef = useRef(null)
 
   const actualStatate = useSelector((state: Iredux) => state.countryData);
   console.log(actualStatate);
@@ -36,13 +37,15 @@ export default function MapPage() {
           mapContainerStyle={{ width: "100%", height: "100%" }}
           center={lastCountry.position}
           zoom={5}
-          onClick={async (e) => dispatch(saveCountry(await handleMapClick(e)))}
+          onClick={async (e) => {
+            dispatch(saveCountry(await handleMapClick(e)));
+          }}
         >
           {!lastCountry.name.common ? (
             <></>
           ) : (
             <MarkerF
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={(ev) => setIsOpen(!isOpen)}
               position={lastCountry.position}
               options={{
                 label: {
@@ -52,7 +55,9 @@ export default function MapPage() {
               }}
             />
           )}
-          <CountryInfo isOpen={isOpen} data={lastCountry} />
+          <div className="component" ref={componentRef}>
+            <CountryInfo isOpen={isOpen} data={lastCountry}  />
+          </div>
         </GoogleMap>
       ) : (
         <>Hi</>

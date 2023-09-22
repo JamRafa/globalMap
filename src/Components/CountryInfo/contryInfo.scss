@@ -1,6 +1,7 @@
 @import "./../../Styles/colours.scss";
 @import "../../Styles/breakpoints.scss";
 
+
 .countryInfo {
   display: flex;
   flex-direction: column;
@@ -21,7 +22,6 @@
     padding: 5%;
     height: 70%;
     .position {
-
       opacity: 0.5;
     }
     h2 {
@@ -54,12 +54,28 @@
     .icons {
       display: flex;
       justify-content: space-around;
+      margin-top: 10px;
       .sub-icons {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
       }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .countryInfo {
+    width: 300px;
+
+    h2 {
+      font-size: 30px !important; 
+      font-weight: bolder;
+    }
+
+    .icons{
+      font-size: 15px !important;
     }
   }
 }

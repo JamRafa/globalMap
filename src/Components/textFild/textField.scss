@@ -1,4 +1,5 @@
 @import "../../Styles/colours.scss";
+@import "../../Styles/breakpoints.scss";
 
 .busca {
   display: flex;
@@ -17,14 +18,52 @@
     width: 100%;
     color: $cor-secundaria;
 
-    &::placeholder{
+    &::placeholder {
       color: $cor-secundaria;
     }
   }
+}
+.buscaSmall {
+  display: none;
+}
 
-  .search{
-    background-color: $cor-secundaria;
-    width: 10px;
-    height: 10px;
+@media (max-width: $mobile) {
+  .busca {
+    display: none;
+  }
+
+  .buscaSmall {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $cor-primaria;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    padding: 14px 16px;
+    max-width: 50px;
+  }
+
+  .buscaSmallOpen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $cor-primaria;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    padding: 14px 16px;
+    max-width: 100%;
+
+    .input {
+      outline: none;
+      background-color: $cor-primaria;
+      border: none;
+      width: 100%;
+      color: $cor-secundaria;
+      &::placeholder {
+        color: $cor-secundaria;
+      }
+    }
   }
 }

@@ -7,9 +7,13 @@
 
 .topBar {
   padding: "2px, 0px, 0px 10px";
+  width: 60%;
 }
 
 @media (max-width: $mobile) {
+  .topBar{
+    width: 65% !important;
+  }
   .sideBar {
     flex-direction: column-reverse;
     .sideBarTabs {

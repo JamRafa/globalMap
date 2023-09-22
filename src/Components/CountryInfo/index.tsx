@@ -1,4 +1,10 @@
-import { FmdGood, Groups, MonetizationOn, Public, RecordVoiceOver } from "@mui/icons-material";
+import {
+  FmdGood,
+  Groups,
+  MonetizationOn,
+  Public,
+  RecordVoiceOver,
+} from "@mui/icons-material";
 import { ICountryLocation } from "../../Interfaces/countryData";
 import "./contryInfo.scss";
 interface CountryInfoProps {
@@ -43,45 +49,49 @@ export default function CountryInfo({ isOpen, data }: CountryInfoProps) {
     }
   };
 
+
   return isOpen ? (
-    <div className="countryInfo">
-      <div className="flag">
-        <img src={data.flag?.svg} alt="a" />
-      </div>
-      <div className="allText">
-        <div className="textImage">
-          <p className="position">
-            <FmdGood />
-            {data.position.lat} | {data.position.lng}
-          </p>
-          <h2>{data.name.common}</h2>
-          <div className="head">
-            <div>
-              <p>{data.name.official}</p>
-              <p>{data.capital}</p>
+    <>
+      <div className="overLay"></div>
+      <div className="countryInfo">
+        <div className="flag">
+          <img src={data.flag?.svg} alt="a" />
+        </div>
+        <div className="allText">
+          <div className="textImage">
+            <p className="position">
+              <FmdGood />
+              {data.position.lat} | {data.position.lng}
+            </p>
+            <h2>{data.name.common}</h2>
+            <div className="head">
+              <div>
+                <p>{data.name.official}</p>
+                <p>{data.capital}</p>
+              </div>
+              {money()}
             </div>
-            {money()}
+            <div className="armyImg">
+              <img src={data.coatOfArms?.svg} alt="coatOfArms"></img>
+            </div>
           </div>
-          <div className="armyImg">
-            <img src={data.coatOfArms?.svg} alt="coatOfArms"></img>
-          </div>
-        </div>
-        <div className="icons">
-          <div className="sub-icons">
-            <Public />
-            <p> {data.region}</p>
-          </div>
-          <div className="sub-icons">
-            <Groups />
-            <p> {data.population}</p>
-          </div>
-          <div className="sub-icons">
-            <RecordVoiceOver />
-            <p> {lang()}</p>
+          <div className="icons">
+            <div className="sub-icons">
+              <Public />
+              <p> {data.region}</p>
+            </div>
+            <div className="sub-icons">
+              <Groups />
+              <p> {data.population}</p>
+            </div>
+            <div className="sub-icons">
+              <RecordVoiceOver />
+              <p> {lang()}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   ) : (
     <></>
   );
