@@ -3,17 +3,17 @@
 
 .busca {
   display: flex;
-  background-color: $cor-primaria;
   align-items: center;
   margin-right: 70px;
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 14px 16px;
   width: 50%;
 
   .input {
     outline: none;
     background-color: $cor-primaria;
+    padding: 14px 16px;
+    border-radius: 10px 0px 0px 10px;
     border: none;
     width: 100%;
     color: $cor-secundaria;
@@ -21,6 +21,14 @@
     &::placeholder {
       color: $cor-secundaria;
     }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    background-color: $cor-secundaria;
+    border-radius: 0px 10px 10px 0px;
+    padding: 13px 14px;
+    color: $cor-primaria !important;
   }
 }
 .buscaSmall {
@@ -51,25 +59,30 @@
   .buscaSmallOpen {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: $cor-primaria;
+    margin-right: 70px;
     border-radius: 10px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    padding: 14px 16px;
-    max-width: 100%;
-    transition: transform 0.3s;
-
+    width: 80%;
 
     .input {
       outline: none;
       background-color: $cor-primaria;
+      padding: 14px 16px;
+      border-radius: 10px 0px 0px 10px;
       border: none;
       width: 100%;
       color: $cor-secundaria;
       &::placeholder {
         color: $cor-secundaria;
       }
+    }
+    .search {
+      display: flex;
+      align-items: center;
+      background-color: $cor-secundaria;
+      border-radius: 0px 10px 10px 0px;
+      padding: 13px 14px;
+      color: $cor-primaria !important;
     }
   }
 }

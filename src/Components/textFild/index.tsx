@@ -24,10 +24,9 @@ export default function Text() {
           value={search}
           onChange={(ev) => setSearch(ev.target.value)}
         />
-        <Search
+
+        <div
           className="search"
-          type="text"
-          sx={{ color: "$cor-primaria" }}
           onClick={async (ev) => {
             if (changePositionArray(historic, search) === false) {
               const response = await handleleSearchAction(search);
@@ -36,7 +35,9 @@ export default function Text() {
               }
             }
           }}
-        />
+        >
+          <Search type="text" />
+        </div>
       </div>
       {isOpen ? (
         <>
@@ -47,12 +48,20 @@ export default function Text() {
               value={search}
               onChange={(ev) => setSearch(ev.target.value)}
             />
-            <Search
+            <div
               className="search"
-              type="text"
-              sx={{ color: "$cor-primaria" }}
-              onClick={() => setIsOpen(!isOpen)}
-            />
+              onClick={async (ev) => {
+                if (changePositionArray(historic, search) === false) {
+                  const response = await handleleSearchAction(search);
+                  if (response) {
+                    dispatch(saveCountry(response));
+                  }
+                }
+                setIsOpen(!isOpen);
+              }}
+            >
+              <Search type="text" />
+            </div>
           </div>
         </>
       ) : (
