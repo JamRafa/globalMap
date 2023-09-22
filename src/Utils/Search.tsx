@@ -15,7 +15,6 @@ export const handleleSearchAction = async (search: string) => {
       return [];
     }
   });
-  console.log(country, "all");
   return country;
 };
 

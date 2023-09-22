@@ -18,7 +18,6 @@ export default function MapPage() {
   const dispatch = useDispatch();
 
   const actualStatate = useSelector((state: Iredux) => state.countryData);
-  console.log(actualStatate);
   let lastCountry = actualStatate[actualStatate.length - 1];
   if (!lastCountry) {
     lastCountry = {

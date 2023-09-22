@@ -98,7 +98,8 @@ export default function StructurePage() {
           backgroundColor: "transparent",
           paddingLeft: 10,
           paddingTop: 0.5,
-          width: '60%'
+          width: '70%',
+          alignItems: 'flex-start'
         }}
       >
         <Text />

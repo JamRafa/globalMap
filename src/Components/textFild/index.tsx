@@ -43,7 +43,7 @@ export default function Text() {
           <div className="buscaSmallOpen">
             <input
               className="input"
-              placeholder="O que você procura?"
+              placeholder="Search..."
               value={search}
               onChange={(ev) => setSearch(ev.target.value)}
             />

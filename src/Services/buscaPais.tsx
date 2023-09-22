@@ -36,8 +36,6 @@ const searchCountryLessInfoSimbol = async(countrySimbol: string) => {
     }
     return FormatReqData(data);
   } catch (err) {
-    console.log(err);
-    alert("Research did not found a country");
   }
 }
 

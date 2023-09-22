@@ -3,13 +3,13 @@
 
 .busca {
   display: flex;
-  align-items: center;
   background-color: $cor-primaria;
+  align-items: center;
+  margin-right: 70px;
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
   padding: 14px 16px;
-  max-width: 40%;
+  width: 50%;
 
   .input {
     outline: none;
@@ -24,6 +24,9 @@
   }
 }
 .buscaSmall {
+  display: none;
+}
+.buscaSmallOpen {
   display: none;
 }
 
@@ -42,6 +45,7 @@
     display: flex;
     padding: 14px 16px;
     max-width: 50px;
+    transition: transform 0.3s;
   }
 
   .buscaSmallOpen {
@@ -54,6 +58,8 @@
     display: flex;
     padding: 14px 16px;
     max-width: 100%;
+    transition: transform 0.3s;
+
 
     .input {
       outline: none;

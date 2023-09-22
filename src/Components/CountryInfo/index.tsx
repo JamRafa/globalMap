@@ -49,7 +49,6 @@ export default function CountryInfo({ isOpen, data }: CountryInfoProps) {
     }
   };
 
-
   return isOpen ? (
     <>
       <div className="countryInfo">
@@ -85,7 +84,7 @@ export default function CountryInfo({ isOpen, data }: CountryInfoProps) {
             </div>
             <div className="sub-icons">
               <RecordVoiceOver />
-              <p> {lang()}</p>
+              <div> {lang()}</div>
             </div>
           </div>
         </div>

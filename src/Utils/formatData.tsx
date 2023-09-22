@@ -31,7 +31,6 @@ export const changePositionArray = (
       contryName?.toLocaleLowerCase()
   );
   if (country) {
-    console.log(country, "ayfgyajhf");
     const countrylist = historic.filter(
       (contry) => contry.name.common !== contryName
     );

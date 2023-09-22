@@ -11,7 +11,6 @@ export default function Historic() {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const historic = useSelector((state: Iredux) => state.countryData);
-  console.log(historic);
 
   return (
     <>
