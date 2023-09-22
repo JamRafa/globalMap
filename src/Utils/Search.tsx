@@ -9,7 +9,7 @@ export const handleleSearchAction = async (search: string) => {
     if (
       country.name.common?.toUpperCase() ||
       country.traslations["por"].common?.toUpperCase() === search.toUpperCase()
-      ) {
+    ) {
       return country;
     } else {
       return [];
@@ -21,6 +21,8 @@ export const handleleSearchAction = async (search: string) => {
 
 export const handleleClickAction = async (search: string) => {
   const allCountry = await searchCountryLessInfoSimbol(search);
- const country =  allCountry?.find((coutry) => coutry)
-  return country;
+  if (allCountry) {
+    const country = allCountry?.find((coutry) => coutry);
+    return country;
+  }
 };

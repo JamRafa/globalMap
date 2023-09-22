@@ -23,7 +23,7 @@ const searchCountryLessInfo = async (countryName: string) => {
     return FormatReqData(data);
   } catch (err) {
     console.log(err);
-    return alert("nao encontrado");
+    return alert("Research did not found a country");
   }
 };
 
@@ -32,12 +32,12 @@ const searchCountryLessInfoSimbol = async(countrySimbol: string) => {
     const response = await Api.get(`alpha/${countrySimbol}`);
     const data: ICountryData[] = response.data;
     if (!data || data.length === 0) {
-      return [];
+      return;
     }
     return FormatReqData(data);
   } catch (err) {
     console.log(err);
-    return alert("nao encontrado");
+    alert("Research did not found a country");
   }
 }
 

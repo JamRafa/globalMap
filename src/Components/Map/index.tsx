@@ -3,7 +3,7 @@ import "./map.scss";
 import { useSelector } from "react-redux";
 import { Iredux } from "../../Interfaces/redux";
 import { handleMapClick } from "../../Utils/Map";
-import { useState} from "react";
+import { useState } from "react";
 import CountryInfo from "../CountryInfo";
 import { useDispatch } from "react-redux";
 import { saveCountry } from "../../Store/reducers/SearchCountry";
@@ -38,7 +38,12 @@ export default function MapPage() {
           center={lastCountry.position}
           zoom={5}
           onClick={async (e) => {
-            dispatch(saveCountry(await handleMapClick(e)));
+            const response = await handleMapClick(e);
+            if (response) {
+              dispatch(saveCountry(response));
+              setIsOpen(true);
+            }
+            setIsOpen(false);
           }}
         >
           {!lastCountry.name.common ? (

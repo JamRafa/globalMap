@@ -20,7 +20,7 @@ export default function Text() {
       <div className="busca">
         <input
           className="input"
-          placeholder="O que você procura?"
+          placeholder="Search..."
           value={search}
           onChange={(ev) => setSearch(ev.target.value)}
         />
@@ -29,9 +29,11 @@ export default function Text() {
           type="text"
           sx={{ color: "$cor-primaria" }}
           onClick={async (ev) => {
-            console.log(changePositionArray(historic, search), 'teste de fun')
             if (changePositionArray(historic, search) === false) {
-              dispatch(saveCountry(await handleleSearchAction(search)));
+              const response = await handleleSearchAction(search);
+              if (response) {
+                dispatch(saveCountry(response));
+              }
             }
           }}
         />
