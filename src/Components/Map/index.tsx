@@ -21,7 +21,9 @@ export default function MapPage() {
   let lastCountry = actualStatate[actualStatate.length - 1];
   if (!lastCountry) {
     lastCountry = {
-      name: {},
+      name: {
+        common: ''
+      },
       position: {
         lat: 0,
         lng: 0,
@@ -61,7 +63,7 @@ export default function MapPage() {
             />
           )}
           <div>
-            <CountryInfo isOpen={isOpen} data={lastCountry} />
+            <CountryInfo isOpen={isOpen}  data={lastCountry} setIsOpen={setIsOpen}/>
           </div>
           <Outlet />
         </GoogleMap>

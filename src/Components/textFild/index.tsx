@@ -15,6 +15,15 @@ export default function Text() {
   const [search, setSearch] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const event = async (ev?: React.KeyboardEvent<HTMLInputElement>) => {
+    if (changePositionArray(historic, search) === false) {
+      const response = await handleleSearchAction(search);
+      if (response) {
+        dispatch(saveCountry(response));
+      }
+    }
+  };
+
   return (
     <>
       <div className="busca">
@@ -22,18 +31,18 @@ export default function Text() {
           className="input"
           placeholder="Search..."
           value={search}
+          onKeyUp={(ev) => {
+            if (ev.key === "Enter") {
+              event();
+            }
+          }}
           onChange={(ev) => setSearch(ev.target.value)}
         />
 
         <div
           className="search"
           onClick={async (ev) => {
-            if (changePositionArray(historic, search) === false) {
-              const response = await handleleSearchAction(search);
-              if (response) {
-                dispatch(saveCountry(response));
-              }
-            }
+            event();
           }}
         >
           <Search type="text" />
@@ -51,12 +60,7 @@ export default function Text() {
             <div
               className="search"
               onClick={async (ev) => {
-                if (changePositionArray(historic, search) === false) {
-                  const response = await handleleSearchAction(search);
-                  if (response) {
-                    dispatch(saveCountry(response));
-                  }
-                }
+                event();
                 setIsOpen(!isOpen);
               }}
             >

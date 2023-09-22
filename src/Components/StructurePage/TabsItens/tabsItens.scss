@@ -5,30 +5,28 @@ a {
   text-decoration: none;
   color: $cor-secundaria;
   .iconsArea {
-
     .icons {
-      font-size: 30px;
+      font-size: 35px;
       color: $cor-secundaria;
       width: 70%;
       padding: 1px;
     }
-    
-    .iconsText{
-        width: 70%;
-        font-size: 30px;
+
+    .iconsText {
+      font-size: 35px;
+      width: 70%;
     }
   }
 }
 
 @media (max-width: $mobile) {
-    .tabIcons{
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
+  .tabIcons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 
-        .iconsText{
-            display: none;
-        }
+    .iconsText {
+      display: none;
     }
   }
-  
+}

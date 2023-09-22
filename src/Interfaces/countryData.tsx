@@ -1,6 +1,6 @@
 export interface ICountryLocation {
   name: {
-    common?: string;
+    common: string;
     official?: string;
     nativeName?: {
       [key: string]: {

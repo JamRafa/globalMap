@@ -17,8 +17,8 @@ export default function Historic() {
       <div className="overLay" onClick={() => nav("/")} />
       <div className="historicTab">
         <div className="historicTitle">
-          <p className="historicText">Historico</p>
-          <p className="historicSubText">Reenconte aquele país</p>
+          <p className="historicText">Historic</p>
+          <p className="historicSubText">Rediscover that country</p>
         </div>
         <div className="group">
           {historic.map((contry: ICountryLocation, index) => (

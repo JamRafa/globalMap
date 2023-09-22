@@ -9,7 +9,7 @@ export default function TabsItens() {
       <Link to={"/"}>
         <ListItemButton className="iconsArea">
           <ListItemIcon>
-            <Home className="icons" />
+            <Home className="icons"/>
           </ListItemIcon>
           <ListItemText primary="Home" className="iconsText" />
         </ListItemButton>
@@ -19,7 +19,7 @@ export default function TabsItens() {
           <ListItemIcon>
             <History className="icons" />
           </ListItemIcon>
-          <ListItemText primary="historic" className="iconsText" />
+          <ListItemText primary="Historic" className="iconsText" />
         </ListItemButton>
       </Link>
     </div>

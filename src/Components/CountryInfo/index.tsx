@@ -1,4 +1,5 @@
 import {
+  Close,
   FmdGood,
   Groups,
   MonetizationOn,
@@ -10,8 +11,13 @@ import "./contryInfo.scss";
 interface CountryInfoProps {
   isOpen: boolean;
   data: ICountryLocation;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export default function CountryInfo({ isOpen, data }: CountryInfoProps) {
+export default function CountryInfo({
+  isOpen,
+  data,
+  setIsOpen,
+}: CountryInfoProps) {
   const money = () => {
     if (data.currencies) {
       const currencyEntries = Object.entries(data.currencies);
@@ -57,10 +63,15 @@ export default function CountryInfo({ isOpen, data }: CountryInfoProps) {
         </div>
         <div className="allText">
           <div className="textImage">
-            <p className="position">
-              <FmdGood />
-              {data.position.lat} | {data.position.lng}
-            </p>
+            <div className="position">
+              <div className="separa">
+                <FmdGood />
+                {data.position.lat} | {data.position.lng}
+              </div>
+              <div onClick={() => setIsOpen(!isOpen)}>
+                <Close className="iconClose" />
+              </div>
+            </div>
             <h2>{data.name.common}</h2>
             <div className="head">
               <div>

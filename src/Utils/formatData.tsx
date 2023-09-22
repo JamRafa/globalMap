@@ -23,12 +23,12 @@ export const FormatReqData = (data: ICountryData[]) => {
 
 export const changePositionArray = (
   historic: ICountryLocation[],
-  contryName?: string
+  contryName: string
 ) => {
-  const [country] = historic.filter(
-    (contry) =>
-      contry.name.common?.toLocaleLowerCase() ===
-      contryName?.toLocaleLowerCase()
+  const [country] = historic.filter((contry) =>
+    contry.name.common
+      ?.toLocaleLowerCase()
+      .includes(contryName.toLocaleLowerCase())
   );
   if (country) {
     const countrylist = historic.filter(

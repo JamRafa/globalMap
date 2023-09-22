@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ICountryLocation } from "./../../Interfaces/countryData";
 
 const initialState = [{
-  name: 'Brazil',
+  name: {
+    common: ''
+  },
   position: {
     lat: -10,
     lng: -55

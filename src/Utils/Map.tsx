@@ -27,7 +27,6 @@ export const handleMapClick = async (e: google.maps.MapMouseEvent) => {
 
             if (country.types?.includes("country")) {
               const countryName = country.short_name;
-              console.log(countryName);
               countryFound = true;
               countryNameSybol = countryName;
             }
