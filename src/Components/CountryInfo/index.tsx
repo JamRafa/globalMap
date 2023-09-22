@@ -52,7 +52,6 @@ export default function CountryInfo({ isOpen, data }: CountryInfoProps) {
 
   return isOpen ? (
     <>
-      <div className="overLay"></div>
       <div className="countryInfo">
         <div className="flag">
           <img src={data.flag?.svg} alt="a" />
