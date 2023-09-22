@@ -21,26 +21,29 @@ export default function Historic() {
           <p className="historicText">Historico</p>
           <p className="historicSubText">Reenconte aquele país</p>
         </div>
-        {historic.map((contry: ICountryLocation, index) => (
-          <div
-            key={index}
-            className="hisroric"
-            onClick={() =>
-              dispatch(
-                newArray(changePositionArray(historic, contry.name.common))
-              )
-            }
-          >
-            <div className="cardHeader">
-              <img src={contry.flag?.svg} alt={contry.flag?.alt} />
-              <div className="headerText">
-                <h3>{contry.name.common}</h3>
-                <p>{contry.name.official}</p>
+        <div className="group">
+          {historic.map((contry: ICountryLocation, index) => (
+            <div
+              key={index}
+              className="hisroric"
+              onClick={() =>
+                dispatch(
+                  newArray(changePositionArray(historic, contry.name.common))
+                )
+              }
+            >
+              <div className="cardHeader">
+                <img src={contry.flag?.svg} alt={contry.flag?.alt} />
+                <div className="headerText">
+                  <h3>{contry.name.common}</h3>
+                  <p>{contry.name.official}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      <div className="botton"></div>
     </>
   );
 }

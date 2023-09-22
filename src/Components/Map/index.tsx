@@ -42,8 +42,9 @@ export default function MapPage() {
             if (response) {
               dispatch(saveCountry(response));
               setIsOpen(true);
+            } else {
+              setIsOpen(false);
             }
-            setIsOpen(false);
           }}
         >
           {!lastCountry.name.common ? (
