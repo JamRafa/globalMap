@@ -3,10 +3,11 @@ import "./map.scss";
 import { useSelector } from "react-redux";
 import { Iredux } from "../../Interfaces/redux";
 import { handleMapClick } from "../../Utils/Map";
-import { useState, useRef } from "react";
-import CountryInfo from "../../Components/CountryInfo";
+import { useState} from "react";
+import CountryInfo from "../CountryInfo";
 import { useDispatch } from "react-redux";
 import { saveCountry } from "../../Store/reducers/SearchCountry";
+import { Outlet } from "react-router-dom";
 
 export default function MapPage() {
   const { isLoaded } = useJsApiLoader({
@@ -15,7 +16,6 @@ export default function MapPage() {
   });
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const componentRef = useRef(null)
 
   const actualStatate = useSelector((state: Iredux) => state.countryData);
   console.log(actualStatate);
@@ -55,12 +55,13 @@ export default function MapPage() {
               }}
             />
           )}
-          <div className="component" ref={componentRef}>
-            <CountryInfo isOpen={isOpen} data={lastCountry}  />
+          <div>
+            <CountryInfo isOpen={isOpen} data={lastCountry} />
           </div>
+          <Outlet />
         </GoogleMap>
       ) : (
-        <>Hi</>
+        <></>
       )}
     </div>
   );

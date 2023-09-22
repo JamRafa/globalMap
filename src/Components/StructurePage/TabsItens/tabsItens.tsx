@@ -14,7 +14,7 @@ export default function TabsItens() {
           <ListItemText primary="Home" className="iconsText" />
         </ListItemButton>
       </Link>
-      <Link to={"/"}>
+      <Link to={"/historic"}>
         <ListItemButton className="iconsArea">
           <ListItemIcon>
             <History className="icons" />

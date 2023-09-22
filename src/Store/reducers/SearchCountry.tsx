@@ -17,8 +17,9 @@ const countrySlice = createSlice({
       return [...state, payload]
     },
     resetCountry: () => initialState,
+    newArray: (state, {payload}) =>payload
   },
 });
 
-export const { saveCountry, resetCountry } = countrySlice.actions;
+export const { saveCountry, resetCountry, newArray } = countrySlice.actions;
 export default countrySlice.reducer;

@@ -13,8 +13,8 @@ import MuiAppBar from "@mui/material/AppBar";
 import Drawer from "@mui/material/Drawer";
 import "./StructurePage.scss";
 import Text from "../textFild";
-import { Outlet } from "react-router-dom";
 import TabsItens from "./TabsItens/tabsItens";
+import MapPage from "../Map";
 
 const drawerWidth: number = 240;
 const drawerWidthClosed: number = 71;
@@ -135,7 +135,7 @@ export default function StructurePage() {
             <TabsItens/>
           </List>
         </Drawers>
-        <Outlet />
+        <MapPage/>
       </Box>
     </ThemeProvider>
   );
