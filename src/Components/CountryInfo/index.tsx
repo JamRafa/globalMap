@@ -1,5 +1,6 @@
 import {
   Close,
+  Flag,
   FmdGood,
   Groups,
   MonetizationOn,
@@ -76,7 +77,10 @@ export default function CountryInfo({
             <div className="head">
               <div>
                 <p>{data.name.official}</p>
-                <p>{data.capital}</p>
+                <div className="cap">
+                  <Flag />
+                  {data.capital}
+                </div>
               </div>
               {money()}
             </div>
