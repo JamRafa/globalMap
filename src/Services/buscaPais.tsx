@@ -30,6 +30,7 @@ const searchCountryLessInfo = async (countryName: string) => {
 const searchCountryLessInfoSimbol = async(countrySimbol: string) => {
   try {
     const response = await Api.get(`alpha/${countrySimbol}`);
+    console.log(response.data)
     const data: ICountryData[] = response.data;
     if (!data || data.length === 0) {
       return;

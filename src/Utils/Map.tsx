@@ -1,8 +1,15 @@
 import { fromLatLng, setKey } from "react-geocode";
 import { handleleClickAction } from "./Search";
-import { IAllPossibleCountryData } from "../Interfaces/countryData";
+import {
+  IAllPossibleCountryData,
+  ICountryLocation,
+} from "../Interfaces/countryData";
+import { changePositionArray } from "./formatData";
 
-export const handleMapClick = async (e: google.maps.MapMouseEvent) => {
+export const handleMapClick = async (
+  e: google.maps.MapMouseEvent,
+  historic: ICountryLocation[]
+) => {
   const lat = e.latLng?.lat();
   const lng = e.latLng?.lng();
   setKey("AIzaSyAgQV7c26ug4xIGFozFN3xYk6RRwCK46u4");
@@ -32,8 +39,13 @@ export const handleMapClick = async (e: google.maps.MapMouseEvent) => {
             }
           });
         });
-
-        return handleleClickAction(countryNameSybol);
+        const newReq = changePositionArray(historic, countryNameSybol);
+        console.log(newReq, 'responseeeee')
+        if (newReq === false) {
+          return handleleClickAction(countryNameSybol);
+        } else {
+          return newReq;
+        }
       } else {
         console.log("Nenhum resultado encontrado.");
       }

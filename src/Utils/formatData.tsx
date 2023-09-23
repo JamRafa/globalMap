@@ -16,6 +16,7 @@ export const FormatReqData = (data: ICountryData[]) => {
       currencies: newData.currencies,
       traslations: newData.translations,
       population: newData.population,
+      cca2: newData.cca2,
     };
   });
   return newData;
@@ -25,15 +26,24 @@ export const changePositionArray = (
   historic: ICountryLocation[],
   contryName: string
 ) => {
-  const [country] = historic.filter((contry) =>
-    contry.name.common
-      ?.toLocaleLowerCase()
-      .includes(contryName.toLocaleLowerCase())
+  console.log(historic, "historic");
+  console.log(contryName, "aaa");
+  const [country] = historic.filter(
+    (contry) =>
+      contry.name.common
+        ?.toLocaleLowerCase()
+        .includes(contryName.toLocaleLowerCase()) ||
+      contry.cca2?.toLocaleLowerCase().includes(contryName.toLocaleLowerCase())
   );
+  console.log(country, "pais");
   if (country) {
     const countrylist = historic.filter(
-      (contry) => contry.name.common !== contryName
+      (contry) =>
+        contry.name.common.toLocaleLowerCase() !==
+          contryName.toLocaleLowerCase() &&
+        contry.cca2?.toLocaleLowerCase() !== contryName.toLocaleLowerCase()
     );
+    console.log(countrylist);
     return [...countrylist, country];
   } else {
     return false;

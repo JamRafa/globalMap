@@ -40,6 +40,7 @@ export interface ICountryLocation {
       common?: string;
     };
   };
+  cca2?: string
 }
 
 export interface ICountryData {

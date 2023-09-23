@@ -3,7 +3,7 @@ import "./textField.scss";
 import "../../Styles/colours.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { saveCountry } from "../../Store/reducers/SearchCountry";
+import { newArray, saveCountry } from "../../Store/reducers/SearchCountry";
 import { handleleSearchAction } from "../../Utils/Search";
 import { useSelector } from "react-redux";
 import { Iredux } from "../../Interfaces/redux";
@@ -16,11 +16,15 @@ export default function Text() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const event = async (ev?: React.KeyboardEvent<HTMLInputElement>) => {
-    if (changePositionArray(historic, search) === false) {
+    const newReq = changePositionArray(historic, search);
+    console.log('aqui', newReq)
+    if (newReq === false) {
       const response = await handleleSearchAction(search);
       if (response) {
         dispatch(saveCountry(response));
       }
+    } else {
+      dispatch(newArray(newReq));
     }
   };
 
